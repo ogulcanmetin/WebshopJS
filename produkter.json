@@ -1,0 +1,214 @@
+{
+    "produkter": [
+      {
+        "id": 1,
+        "namn": "Samba",
+        "märke": "Adidas",
+        "pris": 899,
+        "bild": "img/Adidassamba.jpg.jpg",
+        "lagerStatus": 10,
+        "utvalld": true,
+        "beskrivning": "Klassiska sneakers."
+      },
+      {
+        "id": 2,
+        "namn": "Gel",
+        "märke": "Asics",
+        "pris": 1299,
+        "bild": "img/Asicsgel.jpg.jpg",
+        "lagerStatus": 5,
+        "utvalld": false,
+        "beskrivning": "Stilrena vardagssneakers i premium-material."
+      },
+      {
+        "id": 3,
+        "namn": "997",
+        "märke": "New Balance",
+        "pris": 1099,
+        "bild": "img/NB997.jpg.jpg",
+        "lagerStatus": 6,
+        "utvalld": false,
+        "beskrivning": "Högpresterande sneakers för både stil och träning."
+      },
+      {
+        "id": 4,
+        "namn": "Continental",
+        "märke": "Adidas",
+        "pris": 799,
+        "bild": "img/Adidascontinental.jpg.jpg",
+        "lagerStatus": 4,
+        "utvalld": true,
+        "beskrivning": "Tidlösa vita sneakers som passar till allt."
+      },
+      {
+        "id": 5,
+        "namn": "GT",
+        "märke": "Asics",
+        "pris": 1699,
+        "bild": "img/Asicsgt.jpg.jpg",
+        "lagerStatus": 8,
+        "utvalld": false,
+        "beskrivning": "flexibla sneakers för tuffare träningspass och utomhusbruk."
+      },
+      {
+        "id": 6,
+        "namn": "Air",
+        "märke": "nike",
+        "pris": 999,
+        "bild": "img/Nikeair.jpg.jpg",
+        "lagerStatus": 0,
+        "utvalld": false,
+        "beskrivning": "Retroinspirerade sneakers med modern komfort."
+      },
+      {
+        "id": 7,
+        "namn": "Boost Elite",
+        "märke": "Asics",
+        "pris": 1899,
+        "bild": "images/boost-elite.jpg",
+        "lagerStatus": 5,
+        "utvalld": true,
+        "beskrivning": "Premium löparsneakers med avancerad stötdämpningsteknologi."
+      },
+      {
+        "id": 8,
+        "namn": "Canvas Low",
+        "märke": "Asics",
+        "pris": 599,
+        "bild": "images/canvas-low.jpg",
+        "lagerStatus": 7,
+        "utvalld": false,
+        "beskrivning": "Lättare canvassneakers för varma dagar."
+      },
+      {
+        "id": 9,
+        "namn": "High Top Pro",
+        "märke": "Adidas",
+        "pris": 1199,
+        "bild": "images/high-top-pro.jpg",
+        "lagerStatus": 7,
+        "utvalld": false,
+        "beskrivning": "Höga sneakers med extra ankelstöd och stil."
+      },
+      {
+        "id": 10,
+        "namn": "Midnight Black",
+        "märke": "Converse",
+        "pris": 899,
+        "bild": "images/midnight-black.jpg",
+        "lagerStatus": 6,
+        "utvalld": true,
+        "beskrivning": "Helsvarta sneakers med diskret design för alla tillfällen."
+      },
+      {
+        "id": 11,
+        "namn": "Summer Breeze",
+        "märke": "Asics",
+        "pris": 699,
+        "bild": "images/summer-breeze.jpg",
+        "lagerStatus": 4,
+        "utvalld": false,
+        "beskrivning": "Lätta och luftiga sneakers perfekta för sommaren."
+      },
+      {
+        "id": 12,
+        "namn": "Tech Runner",
+        "märke": "New Balance",
+        "pris": 1599,
+        "bild": "images/tech-runner.jpg",
+        "lagerStatus": 9,
+        "utvalld": false,
+        "beskrivning": "Tekniskt avancerade löparskor med smart design."
+      },
+      {
+        "id": 13,
+        "namn": "Neon Flash",
+        "märke": "Vans",
+        "pris": 1099,
+        "bild": "images/neon-flash.jpg",
+        "lagerStatus": 6,
+        "utvalld": true,
+        "beskrivning": "Uppseendeväckande neonfärgade sneakers för den som vill sticka ut."
+      },
+      {
+        "id": 14,
+        "namn": "Eco Friendly",
+        "märke": "Vans",
+        "pris": 1299,
+        "bild": "images/eco-friendly.jpg",
+        "lagerStatus": 7,
+        "utvalld": false,
+        "beskrivning": "Miljövänliga sneakers tillverkade av återvunna material."
+      },
+      {
+        "id": 15,
+        "namn": "Skate Pro",
+        "märke": "New Balance",
+        "pris": 1199,
+        "bild": "images/skate-pro.jpg",
+        "lagerStatus": 8,
+        "utvalld": false,
+        "beskrivning": "Designade för skateboardåkare med extra slitstark sula."
+      },
+      {
+        "id": 16,
+        "namn": "Cloud Step",
+        "märke": "New Balance",
+        "pris": 1499,
+        "bild": "images/cloud-step.jpg",
+        "lagerStatus": 5,
+        "utvalld": true,
+        "beskrivning": "Ultra-mjuka sneakers som ger känslan av att gå på moln."
+      },
+      {
+        "id": 17,
+        "namn": "Urban Camo",
+        "märke": "Nike",
+        "pris": 1099,
+        "bild": "images/urban-camo.jpg",
+        "lagerStatus": 8,
+        "utvalld": false,
+        "beskrivning": "Sneakers med modern camouflagemönster för urban stil."
+      },
+      {
+        "id": 18,
+        "namn": "Leather Classic",
+        "märke": "Puma",
+        "pris": 1399,
+        "bild": "images/leather-classic.jpg",
+        "lagerStatus": 1,
+        "utvalld": false,
+        "beskrivning": "Exklusiva sneakers i mjukt, högkvalitativt läder."
+      },
+      {
+        "id": 19,
+        "namn": "Lightweight Flex",
+        "märke": "New Balance",
+        "pris": 999,
+        "bild": "images/lightweight-flex.jpg",
+        "lagerStatus": 1,
+        "utvalld": true,
+        "beskrivning": "Extremt lätta sneakers med flexibel design."
+      },
+      {
+        "id": 20,
+        "namn": "Retro 90s",
+        "märke": "Asics",
+        "pris": 1299,
+        "bild": "images/retro-90s.jpg",
+        "lagerStatus": 5,
+        "utvalld": false,
+        "beskrivning": "90-tals inspirerade sneakers med ikonisk chunky design."
+      },
+      {
+        "id": 21,
+        "namn": "Slip On Easy",
+        "märke": "Nike",
+        "pris": 799,
+        "bild": "images/slip-on-easy.jpg",
+        "lagerStatus": 4,
+        "utvalld": false,
+        "beskrivning": "Praktiska slip-on sneakers för enkel av- och påtagning."
+      }
+    ]
+  }

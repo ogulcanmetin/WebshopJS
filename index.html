@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakers Butik</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header med Flexbox och navigation -->
+    <header class="header">
+      <div class="logo">SNEAKERS</div>
+      <nav class="navigation">
+        <a href="#home" class="active" data-section="home">Hem</a>
+        <a href="#products" data-section="products">Sneakers</a>
+        <a href="#about" data-section="about">Om oss</a>
+      </nav>
+      <div id="cart">
+        SHOPPING CART
+        <p id="total-price">Totalt: <span id="cart-total">0</span> kr</p>
+        <div id="shopping-cart">
+          <div class="cartItem"></div>
+          <div class="cartItem"></div>
+          <div class="cartItem"></div>
+        </div>
+      </div>
+    </header>
+  
+    <!-- Huvudinnehåll med sektioner -->
+    <main class="main-content">
+      <!-- Hem-sektion -->
+      <section id="home" class="page-section active">
+        <h1>Välkommen till vår sneakers-butik</h1>
+        <p>Vi erbjuder de senaste och mest populära sneakers på marknaden.</p>
+        <div class="featured-products">
+          <h2>Utvalda sneakers</h2>
+          <div class="product-grid featured">
+            <!-- Här laddas några utvalda produkter via JavaScript -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- Produktsektion -->
+      <section id="products" class="page-section">
+        <h1>Våra sneakers</h1>
+        
+        <!-- Sökfunktion -->
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Sök efter märke...">
+          <button id="search-button">Sök</button>
+        </div>
+        
+        <div class="product-grid">
+          <!-- Produktkort laddas via JavaScript -->
+        </div>
+        
+        <!-- Paginering -->
+        <div class="pagination-controls">
+          <button id="prev-page">Föregående</button>
+          <span id="page-num">Sida 1</span>
+          <button id="next-page">Nästa</button>
+        </div>
+      </section>
+      
+      <!-- Om oss-sektion -->
+      <section id="about" class="page-section">
+        <h1>Om oss</h1>
+        <p>
+          Välkommen till vår sneakers-butik! Vi grundades 2020 med målet att erbjuda de bästa 
+          sneakers till rimliga priser. Vårt fokus ligger på kvalitet, stil och bekvämlighet.
+        </p>
+        <p>
+          Vi har ett passionerat team av sneakers-entusiaster som brinner för att hjälpa dig 
+          hitta det perfekta paret för just dina behov. Oavsett om du söker vardagssneakers, 
+          löparskor eller de senaste limited edition-modellerna, har vi något för dig.
+        </p>
+        <p>
+          Vår vision är att bli den ledande destinationen för sneakers-älskare i Sverige. 
+          Vi jobbar kontinuerligt med att utöka vårt sortiment och förbättra vår kundupplevelse.
+        </p>
+      </section>
+    </main>
+  
+    <!-- Footer med Flexbox -->
+    <footer class="footer">
+      <p>&copy; 2025 Sneakers Butik</p>
+    </footer>
+  </div>
+
+  <!-- Modulskript som pekar på main.js -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

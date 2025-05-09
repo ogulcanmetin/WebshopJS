@@ -1,0 +1,622 @@
+/* ===== GRUNDLÄGGANDE STILAR OCH VARIABLER =====
+   Här definieras färger och andra variabler som används genom hela stilmallen
+   Detta gör det enkelt att ändra utseendet på hela sidan genom att bara ändra här */
+   :root {
+    --primary: #2c3e50;          /* Huvudfärg - mörkblå */
+    --primary-light: #34495e;    /* Ljusare variant av huvudfärgen */
+    --accent: #e74c3c;           /* Accentfärg - röd */
+    --accent-hover: #c0392b;     /* Mörkare accentfärg för hover-effekter */
+    --text-light: #ecf0f1;       /* Ljus textfärg för mörk bakgrund */
+    --text-dark: #2c3e50;        /* Mörk textfärg för ljus bakgrund */
+    --background: #ffffff;       /* Huvudbakgrundsfärg */
+    --background-alt: #f8f9fa;   /* Alternativ bakgrundsfärg */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Standardskugga för kort */
+    --border-radius: 8px;        /* Avrundade hörn */
+  }
+  
+  /* ===== GRUNDLÄGGANDE ÅTERSTÄLLNING =====
+     Återställer standardmarginal och padding för alla element
+     Detta ger en konsekvent bas att bygga vidare på */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;      /* Inkluderar padding och border i elementets totala bredd */
+  }
+  
+  /* ===== GRUNDLÄGGANDE BODY-STYLING =====
+     Sätter grund-typsnitt, linjehöjd och färger för hela sidan */
+  body {
+    font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;            /* Ökar radavstånd för bättre läsbarhet */
+    color: var(--text-dark);
+    background-color: var(--background);
+    overflow-x: hidden;          /* Hindrar horisontell scrollning */
+  }
+  
+  /* ===== CONTAINER - GRID =====
+     Huvudbehållare som använder CSS Grid för att strukturera sidan i header, main och footer */
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;              /* Centrerar innehållet på sidan */
+    min-height: 100vh;           /* Tar minst hela skärmhöjden */
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, main, footer */
+  }
+  
+  /* ===== HEADER =====
+     Huvudnavigationsområde högst upp på sidan */
+  .header {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;            /* Fäster header överst vid scrollning */
+    top: 0;
+    z-index: 100;                /* Säkerställer att header visas över annat innehåll */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ===== LOGO =====
+     Stilar för logotypen, med gradient-effekt */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, var(--text-light), var(--accent));
+    -webkit-background-clip: text;  /* För webbläsarkompatibilitet */
+    background-clip: text;
+    color: transparent;          /* Gör texten transparent så gradienten syns igenom */
+  }
+  
+  /* ===== NAVIGATION =====
+     Stilar för navigationslänkarna i header */
+  .navigation {
+    display: flex;
+    gap: 1.5rem;                 /* Mellanrum mellan länkar */
+    flex-grow: 1;                /* Tar upp tillgängligt utrymme */
+    justify-content: center;     /* Centrerar länkarna inom navigationsblocket */
+  }
+  
+  /* ===== NAVIGATIONSLÄNKAR =====
+     Stilar för varje navigationslänk */
+  .navigation a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem;
+    font-weight: 400;
+    position: relative;          /* För understrykningseffekten */
+    transition: color 0.3s ease; /* Mjuk övergång för färgändringar */
+  }
+  
+  /* ===== UNDERSTRYKNINGSEFFEKT FÖR NAVIGATIONSLÄNKAR =====
+     Skapar en linje under länkar vid hover */
+  .navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;                    /* Börjar med 0 bredd */
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease; /* Animerar bredden */
+  }
+  
+  /* ===== HOVER-EFFEKT FÖR NAVIGATIONSLÄNKAR =====
+     Ändrar färg vid hover */
+  .navigation a:hover {
+    color: var(--accent);
+  }
+  
+  /* ===== HOVER OCH AKTIV EFFEKT FÖR NAVIGATIONSLÄNKAR =====
+     Visar understrykningslinjen vid hover och för aktiv länk */
+  .navigation a:hover::after,
+  .navigation a.active::after {
+    width: 100%;                 /* Expanderar linjen till full bredd */
+  }
+  
+  /* ===== AKTIV NAVIGATIONSLÄNK =====
+     Stilar för den aktiva/valda navigationslänken */
+  .navigation a.active {
+    color: var(--accent);
+  }
+  
+  /* ===== KUNDKORG =====
+     Styling för kundkorgen som helhet - använder ID (#cart) eftersom det är ett unikt element
+     som bara förekommer en gång på sidan. ID har högre specificitet än klasser. */
+  #cart {
+    margin-left: auto;
+    padding: 0 1rem;
+    position: relative;          /* Viktig för dropdown-positionering så att undermenyerna placeras rätt */
+    cursor: pointer;             /* Visar att kundkorgen är klickbar */
+  }
+  
+  /* ===== HOVER-EFFEKT FÖR KUNDKORGEN =====
+     Hover-effekt för kundkorgen */
+  #cart:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ger en subtil skuggeffekt vid hover */
+  }
+  
+  /* ===== KUNDKORGSBEHÅLLARE =====
+     Styling för behållaren av produkterna - använder ID (#shopping-cart) eftersom denna
+     container också är unik på sidan */
+  #shopping-cart {
+    list-style: none;
+    padding: 5px;                /* Lite mer padding för bättre utseende */
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;            /* Ger scrollbar om många produkter */
+    
+    /* Dropdown-egenskaper för att skapa popup-menyn */
+    position: absolute;          /* Tar elementet ur normala flödet */
+    top: 100%;                   /* Placerar direkt under kundkorgsikonen */
+    right: 0;                    /* Justerar till höger */
+    min-width: 220px;            /* Större bredd för bättre läsbarhet */
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;                /* Gör att dropdown visas över andra element */
+  }
+  
+  /* ===== KUNDKORGSPRODUKT =====
+     Styling för varje produkt i kundkorgen - använder KLASS (.cartItem) eftersom det kommer finnas
+     flera produkter med samma styling. Klasser är perfekta för upprepade element. */
+  .cartItem {
+    display: none;               /* Göm som standard - viktigt för dropdown-effekten */
+    justify-content: space-between;
+    align-items: center;         /* Centrerar innehållet vertikalt */
+    padding: 10px;               /* Mer padding för bättre utseende */
+    font-size: 0.9rem;
+    background-color: white;     /* Säkerställer att texten syns mot bakgrunden */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+  
+  /* ===== VISA KUNDKORGSPRODUKTER VID HOVER =====
+     Den viktiga regeln för dropdown-funktionalitet som visar produkter när användaren hovrar
+     över kundkorgen. Använder ID för kundkorgen (#cart) och KLASS för produkterna (.cartItem) */
+  #cart:hover .cartItem {
+    display: flex;               /* Ändrar från none till flex för att visa elementen vid hover */
+  }
+  
+  /* ===== PRODUKTNAMN I KUNDKORGEN =====
+     Styling för produktnamnet i kundkorgen för bättre läsbarhet */
+  .item-name {
+    flex-grow: 1;
+    color: #333;                 /* Mörk textfärg */
+    font-weight: 500;
+    margin-right: 10px;
+  }
+  
+  /* ===== PRODUKTPRIS I KUNDKORGEN =====
+     Styling för produktpriset i kundkorgen */
+  .item-price {
+    color: var(--accent);        /* Använder accent-färg */
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  /* ===== TA BORT-KNAPP I KUNDKORGEN =====
+     Styling för ta bort-knappen */
+  .remove-btn {
+    background-color: #f44336;   /* Röd färg för borttagningsknapp */
+    color: white;
+    border: none;
+    border-radius: 50%;          /* Rund knapp */
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ===== TOTALBELOPP I KUNDKORGEN =====
+     Styling för totalbeloppet - använder ID (#cart-total) eftersom det också är ett
+     unikt element som bara förekommer en gång */
+  #cart-total {
+    font-weight: bold;
+    color: var(--accent);
+  }
+  
+  /* ===== MAIN CONTENT =====
+     Huvudinnehållsområdet i mitten av sidan, använder grid-layout */
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+  }
+  
+  /* ===== PAGE SECTIONS =====
+     Hantering av olika sidor/sektioner, visas med fade-in animation */
+  .page-section {
+    display: none;               /* Dölj som standard */
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* ===== AKTIV SIDA/SEKTION =====
+     Stilar för den aktiva/visade sidan eller sektionen */
+  .page-section.active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ===== FADE-IN ANIMATION =====
+     Animation för mjuk övergång när sidor växlas */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== RUBRIKER =====
+     Gemensamma stilar för alla rubriker */
+  h1, h2, h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  /* ===== H1-RUBRIK =====
+     Stilar för den största rubriken, inkl. understrykning */
+  h1 {
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* ===== H1-RUBRIK UNDERSTRYKNING =====
+     Dekorativt streck under h1-rubriker */
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent);
+  }
+  
+  /* ===== H2-RUBRIK =====
+     Stilar för näst största rubriken */
+  h2 {
+    font-size: 2rem;
+  }
+  
+  /* ===== H3-RUBRIK =====
+     Stilar för tredje största rubriken */
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  /* ===== BRÖDTEXT =====
+     Stilar för vanlig text */
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+  
+  /* ===== FEATURED PRODUCTS SECTION =====
+     Sektion för utvalda produkter */
+  .featured-products {
+    margin-top: 3rem;
+  }
+  
+  /* ===== PRODUKTGRID =====
+     Rutnät för produktkort, använder CSS Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsivt rutnät */
+    gap: 2.5rem;                /* Mellanrum mellan produktkort */
+    margin-top: 2rem;
+  }
+  
+  /* ===== UTVALDA PRODUKTER GRID =====
+     Anpassad grid för utvalda produkter */
+  .product-grid.featured {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Större kort för utvalda */
+  }
+  
+  /* ===== PRODUKTKORT =====
+     Stilar för varje produktkort - ändrad till flex */
+  .product-card {
+    background-color: var(--background);
+    border-radius: var(--border-radius);
+    overflow: hidden;            /* Döljer innehåll som sticker utanför */
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Optimerad övergång */
+    position: relative;
+    display: flex;  /* Produktkortet använder flexbox */ 
+    flex-direction: column; /* Staplar innehållet vertikalt */
+    height: 100%; /* Säkerställer att alla kort har samma höjd */
+    will-change: transform;      /* Förbättrar prestanda för transform */
+  }
+  
+  /* ===== PRODUKTKORT HOVER =====
+     Hover-effekt för produktkort */
+  .product-card:hover {
+    transform: translateY(-5px); /* Lyfter kortet lite vid hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ===== PRODUKTBILD =====
+     Stilar för produktbilder */
+  .product-card img {
+    width: 100%;
+    height: 400px;               /* Ändra från 250px till 400px för större bilder */
+    object-fit: cover;           /* Skalar bilden för att passa utan att förvränga */
+    transition: transform 0.3s ease;
+    will-change: transform;      /* Förbättrar prestanda för transform */
+  }
+  
+  /* ===== PRODUKTBILD HOVER =====
+     Zoom-effekt för bilder vid hover */
+  .product-card:hover img {
+    transform: scale(1.03);     /* Zoomar in bilden lite */
+  }
+  
+  /* ===== PRODUKTTITEL =====
+     Stilar för produktnamnet */
+  .product-card h3 {
+    padding: 1.25rem 1.25rem 0.5rem;
+    font-size: 1.4rem;
+  }
+  
+  /* ===== PRIS =====
+     Stilar för produktpriset */
+  .price {
+    font-weight: 700;
+    color: var(--accent);
+    padding: 0 1.25rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* ===== MÄRKE =====
+     Styling för märke (brand) */
+  .brand {
+    padding: 0 1.25rem;
+    font-size: 0.95rem;
+    color: var(--primary-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ===== PRODUKTBESKRIVNING =====
+     Stilar för produktbeskrivningstexten */
+  .description {
+    padding: 0 1.25rem 1.25rem;
+    font-size: 0.95rem;
+    color: #666;
+    flex-grow: 1;                /* Får beskrivningen att ta upp tillgängligt utrymme */
+  }
+  
+  /* ===== KÖP-KNAPP =====
+     Stilar för köp-knappen */
+  .buy-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Optimerad övergång */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;            /* Säkerställer att knappen hamnar längst ner */
+  }
+  
+  /* ===== KÖP-KNAPP HOVER =====
+     Hover-effekt för köp-knappen */
+  .buy-button:hover {
+    background-color: var(--accent);
+  }
+  
+  /* ===== OM OSS-SEKTION =====
+     Stilar för Om oss-sektionen */
+  #about {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  /* ===== OM OSS-TEXT =====
+     Stilar för text i Om oss-sektionen */
+  #about p {
+    margin-bottom: 1.75rem;
+    font-size: 1.1rem;
+  }
+  
+  /* ===== FOOTER =====
+     Stilar för sidfoten */
+  .footer {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  /* ===== RESPONSIV DESIGN =====
+     Anpassningar för större skärmar */
+  @media (max-width: 900px) {
+    .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mindre kort på mindre skärmar */
+    }
+    
+    .product-grid.featured {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    h1 {
+      font-size: 2.2rem;        /* Mindre rubrik på mindre skärmar */
+    }
+  }
+  
+  /* ===== RESPONSIV DESIGN - MELLANSTOR SKÄRM =====
+     Anpassningar för surfplattor och liknande enheter */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    .navigation {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .main-content {
+      padding: 2rem 1rem;
+    }
+    
+    .product-grid {
+      gap: 1.5rem;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* ===== RESPONSIV DESIGN - LITEN SKÄRM =====
+     Anpassningar för mobiltelefoner */
+  /*Media queries som denna gör din sida responsiv genom att anpassa layouten för små skärmar (mobiltelefoner). 
+  När skärmbredden är 480px eller mindre aktiveras dessa stilar:*/
+  @media (max-width: 480px) {
+    .navigation {
+      flex-wrap: wrap; /* gör att navigationslänkarna kan brytas till flera rader när det blir trångt */
+      gap: 0.75rem;
+    }
+    
+    .navigation a {
+      font-size: 0.9rem; /* mindre text */
+    }
+    
+    .product-grid {
+      grid-template-columns: 1fr; /* En kolumn på mobilen */
+    }
+    
+    .product-grid.featured {
+      grid-template-columns: 1fr;
+    }
+    
+    .product-card img {
+      height: 200px;             /* Mindre bilder på mobilen */
+    }
+  }
+  
+  /* ===== NYA STILAR FÖR SÖKFUNKTION =====
+     Container för sökrutan och sökknappen */
+  .search-container {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* ===== SÖKINPUT =====
+     Stilar för sökfältet */
+  #search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    flex: 1;                    /* Tar upp tillgängligt utrymme */
+  }
+  
+  /* ===== SÖKKNAPP =====
+     Stilar för sökknappen */
+  #search-button {
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* ===== SÖKKNAPP HOVER =====
+     Hover-effekt för sökknappen */
+  #search-button:hover {
+    background-color: var(--accent);
+  }
+  
+  /* ===== RENSA SÖK-KNAPP =====
+     Stilar för knappen som rensar sökresultat */
+  .clear-search-button {
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* ===== RENSA SÖK-KNAPP HOVER =====
+     Hover-effekt för rensa-knappen */
+  .clear-search-button:hover {
+    background-color: var(--primary);
+  }
+  
+  /* ===== SÖKRESULTATINFO =====
+     Stilar för texten som visar sökresultatinfo */
+  .search-results-info {
+    margin: 10px 0;
+    font-style: italic;
+    color: #666;
+  }
+  
+  /* ===== NYA STILAR FÖR PAGINERING =====
+     Container för pagineringskontroller */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 15px;
+  }
+  
+  /* ===== PAGINERKNAPPAR =====
+     Stilar för föregående/nästa-knappar */
+  #prev-page, #next-page {
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* ===== PAGINERKNAPPAR HOVER =====
+     Hover-effekt för pagineringsknappar */
+  #prev-page:hover, #next-page:hover {
+    background-color: var(--accent);
+  }
+  
+  /* ===== INAKTIVERADE PAGINERKNAPPAR =====
+     Stilar för inaktiverade pagineringsknappar */
+  #prev-page:disabled, #next-page:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;         /* Visar att knappen inte är klickbar */
+  }
+  
+  /* ===== SIDNUMMER =====
+     Stilar för text som visar aktuellt sidnummer */
+  #page-num {
+    font-weight: 500;
+    color: var(--primary);
+  }
